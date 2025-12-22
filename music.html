@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music — Robin Nap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="noise"></div>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <main class="main" style="justify-content: flex-start; padding-top: 80px;">
+        
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <span class="arrow">←</span>
+                <span>Back</span>
+            </a>
+            <h1 class="page-title">Music</h1>
+            <p class="page-subtitle">A chapter closed, but never forgotten</p>
+        </header>
+        
+        <div class="page-content">
+            <section class="content-section">
+                <p class="section-text">
+                    After years of making music professionally, I've decided to step back from 
+                    my career as a DJ and producer. What started as pure joy — getting goosebumps 
+                    from crazy sounds alone in my room — had become something else entirely. 
+                    Music became pressure instead of passion.
+                </p>
+                <p class="section-text" style="margin-top: 20px;">
+                    Combined with managing epilepsy since 2018, continuing the lifestyle 
+                    I had pre-COVID wasn't sustainable. But I'm endlessly grateful for 
+                    every moment — playing in different countries at a young age is 
+                    something I'll remember forever.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Highlights</h2>
+                
+                <div class="content-card">
+                    <h3>Get Up</h3>
+                    <p>Charted <strong>#48</strong> on Apple Music House charts in the Netherlands.</p>
+                    <div class="meta">House · Single</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>The Old School Vibe</h3>
+                    <p>Peaked <strong>#28</strong> Dance charts in the Netherlands and 
+                       <strong>#51</strong> House charts in Bulgaria. Played by Jack Wins.</p>
+                    <div class="meta">Dance · Single</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>The Takeover Radio Show</h3>
+                    <p>My own radio show and podcast, sharing the sounds I love 
+                       with listeners around the world.</p>
+                    <div class="meta">Podcast</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Listen</h2>
+                <p class="section-text" style="margin-bottom: 24px;">
+                    All my music is still available to stream.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+                    <a href="https://open.spotify.com/artist/7lGuCWvyFdoK9msBGGJP5I" target="_blank" style="color: var(--accent); text-decoration: none;">Spotify →</a>
+                    <a href="https://music.apple.com/nl/artist/robin-nap/1489389179?l=en-GB" target="_blank" style="color: var(--accent); text-decoration: none;">Apple Music →</a>
+                    <a href="https://soundcloud.com/robinnapmusic" target="_blank" style="color: var(--accent); text-decoration: none;">SoundCloud →</a>
+                    <a href="https://podcasts.apple.com/nl/podcast/the-takeover-radio-show/id1488229312?l=en-GB" target="_blank" style="color: var(--accent); text-decoration: none;">Podcast →</a>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Giving Back</h2>
+                <p class="section-text">
+                    To help upcoming artists, I'm working on an Artist Career Course 
+                    with all the knowledge I've gained over the years. Coming soon.
+                </p>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2025 Robin Nap</p>
+        </footer>
+    </main>
+    
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            followerX += (mouseX - followerX) * 0.08;
+            followerY += (mouseY - followerY) * 0.08;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+        
+        // Hover effects for cards
+        const cards = document.querySelectorAll('.content-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                follower.classList.add('follower-hover');
+            });
+            card.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                follower.classList.remove('follower-hover');
+            });
+        });
+        
+        // Parallax orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            orbs[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            orbs[1].style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+            orbs[2].style.transform = `translate(${x * 15}px, ${y * -15}px)`;
+        });
+    </script>
+</body>
+</html>

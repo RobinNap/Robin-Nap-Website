@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Robin Nap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="noise"></div>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <main class="main" style="justify-content: flex-start; padding-top: 80px;">
+        
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <span class="arrow">←</span>
+                <span>Back</span>
+            </a>
+            <h1 class="page-title">Work</h1>
+            <p class="page-subtitle">Driving AI Adoption, Automation & GTM Efficiency</p>
+        </header>
+        
+        <div class="page-content">
+            <section class="content-section">
+                <p class="section-text">
+                    I believe the best solutions come from thinking differently. 
+                    From building intelligent tools to crafting seamless experiences, 
+                    I thrive at the intersection of technology and art.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">FareHarbor / Booking.com</h2>
+                <p class="section-text" style="margin-bottom: 30px;">Amsterdam</p>
+                
+                <div class="content-card">
+                    <h3>GTM Operations Associate</h3>
+                    <p>Leading AI implementation and automation across the organization. 
+                       Built systems that delivered <strong>20× more leads/hour</strong> and 
+                       <strong>12.5× faster processing</strong> — transforming how Sales discovers 
+                       and converts opportunities.</p>
+                    <div class="meta">Jul 2024 — Present</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Software Partnerships Specialist</h3>
+                    <p>Responsible for the technical aspects of FareHarbor's partnership ecosystem. 
+                       Worked extensively with webhooks, Zapier integrations, and API implementations.</p>
+                    <div class="meta">Aug 2022 — Jul 2024 · 2 yrs</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Apple</h2>
+                <p class="section-text" style="margin-bottom: 30px;">Amsterdam</p>
+                
+                <div class="content-card">
+                    <h3>Technical Expert</h3>
+                    <p>Worked on Siri — helping ensure Dutch language understanding for 
+                       the HomePod mini launch. At the Genius Bar, diagnosed and resolved 
+                       complex hardware and software issues while delivering exceptional 
+                       customer experiences.</p>
+                    <div class="meta">Jan 2020 — Aug 2022 · 2 yrs 8 mos</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Technical Specialist</h3>
+                    <p>Helped new owners get started and provided quick, efficient support — 
+                       developing strong, positive relationships with customers.</p>
+                    <div class="meta">Oct 2018 — Jan 2020 · 1 yr 4 mos</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Specialist</h3>
+                    <p>Highly skilled at uncovering customers' needs and following through with 
+                       enlightening solutions. Where my Apple journey began.</p>
+                    <div class="meta">Jul 2017 — Oct 2018 · 1 yr 4 mos</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Certifications</h2>
+                
+                <div class="content-card">
+                    <h3>Computer Science</h3>
+                    <p>Harvard University (CS50)</p>
+                    <div class="meta">2020</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Cybersecurity for Critical Urban Infrastructure</h3>
+                    <p>Massachusetts Institute of Technology</p>
+                    <div class="meta">2021</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>iOS Mobile Application Development</h3>
+                    <p>Meta</p>
+                    <div class="meta">2022</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Beyond Work</h2>
+                
+                <div class="content-card">
+                    <h3>Volunteer Firefighter</h3>
+                    <p>Brandweer Amsterdam-Amstelland — serving the community through 
+                       disaster and humanitarian relief efforts.</p>
+                    <div class="meta">Jun 2025 — Present</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-text">
+                    Interested in working together or just want to chat about AI, automation, 
+                    or anything tech? <a href="https://www.linkedin.com/in/robin-nap-45254315b/" target="_blank" style="color: var(--accent); text-decoration: none;">Find me on LinkedIn →</a>
+                </p>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2025 Robin Nap</p>
+        </footer>
+    </main>
+    
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            followerX += (mouseX - followerX) * 0.08;
+            followerY += (mouseY - followerY) * 0.08;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+        
+        // Hover effects for cards
+        const cards = document.querySelectorAll('.content-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                follower.classList.add('follower-hover');
+            });
+            card.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                follower.classList.remove('follower-hover');
+            });
+        });
+        
+        // Parallax orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            orbs[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            orbs[1].style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+            orbs[2].style.transform = `translate(${x * 15}px, ${y * -15}px)`;
+        });
+    </script>
+</body>
+</html>

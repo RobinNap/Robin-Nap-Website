@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps — Robin Nap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="noise"></div>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <main class="main" style="justify-content: flex-start; padding-top: 80px;">
+        
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <span class="arrow">←</span>
+                <span>Back</span>
+            </a>
+            <h1 class="page-title">Apps</h1>
+            <p class="page-subtitle">Crafted with care at Lumon Labs</p>
+        </header>
+        
+        <div class="page-content">
+            <section class="content-section">
+                <p class="section-text">
+                    I build apps under Lumon Labs — creating tools that are intuitive, 
+                    beautiful, and genuinely useful. Each app is designed to solve a 
+                    real problem with simplicity and elegance.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Apps on the App Store</h2>
+                
+                <div class="content-card">
+                    <h3>Motif Designer</h3>
+                    <p>Build beautiful app icons using your own SVG files. 
+                       A simple, intuitive tool for developers and designers 
+                       who want custom icons for their apps.</p>
+                    <div class="meta">Swift · 2025</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>RhythmKey</h3>
+                    <p>Your go-to app for tempo and key matching. Tap for tempo, swipe to 
+                       adjust with precision, and instantly see half-time and double-time 
+                       variations. Built for musicians, DJs, and producers.</p>
+                    <div class="meta">Swift · 2025</div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Stage Timer</h3>
+                    <p>The ultimate countdown timer and schedule tracker for stage performers 
+                       and event professionals. Stay organized, stay on time, and never miss a cue.</p>
+                    <div class="meta">Swift · 2025</div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="section-title">Lumon Labs</h2>
+                <p class="section-text">
+                    Lumon Labs is where I design and develop apps for Apple platforms. 
+                    Every app is crafted with attention to detail and a focus on 
+                    delightful user experiences. <a href="https://www.lumonlabs.io" target="_blank" style="color: var(--accent); text-decoration: none;">Visit lumonlabs.io →</a>
+                </p>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2025 Robin Nap</p>
+        </footer>
+    </main>
+    
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            followerX += (mouseX - followerX) * 0.08;
+            followerY += (mouseY - followerY) * 0.08;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+        
+        // Hover effects for cards
+        const cards = document.querySelectorAll('.content-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                follower.classList.add('follower-hover');
+            });
+            card.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                follower.classList.remove('follower-hover');
+            });
+        });
+        
+        // Parallax orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            orbs[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            orbs[1].style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+            orbs[2].style.transform = `translate(${x * 15}px, ${y * -15}px)`;
+        });
+    </script>
+</body>
+</html>
