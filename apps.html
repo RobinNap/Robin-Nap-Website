@@ -72,7 +72,7 @@
                 <p class="section-text">
                     Lumon Labs is where I design and develop apps for Apple platforms. 
                     Every app is crafted with attention to detail and a focus on 
-                    delightful user experiences. <a href="https://www.lumonlabs.io" target="_blank" style="color: var(--accent); text-decoration: none;">Visit lumonlabs.io →</a>
+                    delightful user experiences. <a href="https://lumonlabs.io" target="_blank" style="color: var(--accent); text-decoration: none;">Visit lumonlabs.io →</a>
                 </p>
             </section>
         </div>
@@ -83,46 +83,50 @@
     </main>
     
     <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
+        // Only run custom cursor on devices with fine pointer (mouse)
+        const hasFineMouse = window.matchMedia('(pointer: fine)').matches;
         
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let followerX = 0, followerY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-        
-        function animate() {
-            cursorX += (mouseX - cursorX) * 0.2;
-            cursorY += (mouseY - cursorY) * 0.2;
-            followerX += (mouseX - followerX) * 0.08;
-            followerY += (mouseY - followerY) * 0.08;
+        if (hasFineMouse) {
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
             
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            let followerX = 0, followerY = 0;
             
-            requestAnimationFrame(animate);
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animate() {
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+                followerX += (mouseX - followerX) * 0.08;
+                followerY += (mouseY - followerY) * 0.08;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                follower.style.left = followerX + 'px';
+                follower.style.top = followerY + 'px';
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+            
+            // Hover effects for cards
+            const cards = document.querySelectorAll('.content-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    cursor.classList.add('cursor-hover');
+                    follower.classList.add('follower-hover');
+                });
+                card.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('cursor-hover');
+                    follower.classList.remove('follower-hover');
+                });
+            });
         }
-        animate();
-        
-        // Hover effects for cards
-        const cards = document.querySelectorAll('.content-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                cursor.classList.add('cursor-hover');
-                follower.classList.add('follower-hover');
-            });
-            card.addEventListener('mouseleave', () => {
-                cursor.classList.remove('cursor-hover');
-                follower.classList.remove('follower-hover');
-            });
-        });
         
         // Parallax orbs
         document.addEventListener('mousemove', (e) => {
