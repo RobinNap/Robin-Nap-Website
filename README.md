@@ -8,9 +8,9 @@ Personal website for Robin Nap — exploring the intersection of technology and 
 
 A minimal, award-worthy personal website featuring three main sections:
 
+- **Music** — DJ sets, bookings & THE EDIT. podcast
 - **Work** — From Apple to AI automation at FareHarbor/Booking.com
 - **Apps** — Lumon Labs apps built with Swift for Apple platforms
-- **Music** — A DJ journey, now archived
 
 ## Tech Stack
 
@@ -48,7 +48,7 @@ This site is deployed on [Cloudflare Pages](https://pages.cloudflare.com) with a
 
 ## License
 
-© 2025 Robin Nap. All rights reserved.
+© 2026 Robin Nap. All rights reserved.
 
 ---
 
