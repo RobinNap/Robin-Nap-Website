@@ -50,27 +50,13 @@
             margin: 0 auto;
         }
         
-        .linkinbio-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            animation: fadeSlideUp 0.8s ease-out 0.2s both;
-        }
-        
-        .linkinbio-name {
-            font-size: clamp(32px, 8vw, 48px);
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        .linkinbio-logo {
+            max-width: 90%;
+            height: auto;
+            max-height: 200px;
+            width: auto;
             margin-bottom: 60px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+            animation: fadeSlideUp 0.8s ease-out 0.2s both;
         }
         
         .linkinbio-links {
@@ -141,10 +127,10 @@
             transform: translateX(5px);
         }
         
-        .linkinbio-link:nth-child(1) { animation: fadeSlideUp 0.8s ease-out 0.6s both; }
-        .linkinbio-link:nth-child(2) { animation: fadeSlideUp 0.8s ease-out 0.7s both; }
-        .linkinbio-link:nth-child(3) { animation: fadeSlideUp 0.8s ease-out 0.8s both; }
-        .linkinbio-link:nth-child(4) { animation: fadeSlideUp 0.8s ease-out 0.9s both; }
+        .linkinbio-link:nth-child(1) { animation: fadeSlideUp 0.8s ease-out 0.4s both; }
+        .linkinbio-link:nth-child(2) { animation: fadeSlideUp 0.8s ease-out 0.5s both; }
+        .linkinbio-link:nth-child(3) { animation: fadeSlideUp 0.8s ease-out 0.6s both; }
+        .linkinbio-link:nth-child(4) { animation: fadeSlideUp 0.8s ease-out 0.7s both; }
         
         @media (max-width: 768px) {
             .linkinbio-container {
@@ -153,13 +139,9 @@
                 padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
             }
             
-            .linkinbio-photo {
-                width: 160px;
-                height: 160px;
-                margin-bottom: 30px;
-            }
-            
-            .linkinbio-name {
+            .linkinbio-logo {
+                max-width: 85%;
+                max-height: 140px;
                 margin-bottom: 40px;
             }
             
@@ -185,9 +167,7 @@
     </div>
     
     <div class="linkinbio-container">
-        <img src="images/robin-nap-bio.jpg" alt="Robin Nap" class="linkinbio-photo">
-        
-        <h1 class="linkinbio-name">Robin Nap</h1>
+        <img src="images/robin-nap-logo.png" alt="Robin Nap" class="linkinbio-logo">
         
         <div class="linkinbio-links">
             <a href="https://soundcloud.com/robinnapmusic" target="_blank" class="linkinbio-link">
