@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Link in Bio — Robin Nap</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Robin Nap — Links to music, podcast, and contact.">
+    <meta name="keywords" content="Robin Nap, DJ, Producer, Links">
+    <meta name="author" content="Robin Nap">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robinnap.com/linkinbio">
+    <meta property="og:title" content="Link in Bio — Robin Nap">
+    <meta property="og:description" content="Links to music, podcast, and contact.">
+    <meta property="og:image" content="https://robinnap.com/images/robin-nap-bio.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://robinnap.com/linkinbio">
+    <meta name="twitter:title" content="Link in Bio — Robin Nap">
+    <meta name="twitter:description" content="Links to music, podcast, and contact.">
+    <meta name="twitter:image" content="https://robinnap.com/images/robin-nap-bio.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <link rel="apple-touch-icon" href="images/favicon.jpg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Link in Bio specific styles */
+        .linkinbio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 24px;
+            padding-top: calc(60px + env(safe-area-inset-top, 0px));
+            padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .linkinbio-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: fadeSlideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .linkinbio-name {
+            font-size: clamp(32px, 8vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+        }
+        
+        .linkinbio-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .linkinbio-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 28px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        
+        .linkinbio-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .linkinbio-link:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .linkinbio-link:hover::before {
+            opacity: 0.1;
+        }
+        
+        .linkinbio-link-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+        
+        .linkinbio-link-title {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        .linkinbio-link-arrow {
+            position: relative;
+            z-index: 1;
+            font-size: 20px;
+            color: var(--text-muted);
+            transition: all 0.4s ease;
+        }
+        
+        .linkinbio-link:hover .linkinbio-link-arrow {
+            color: var(--text);
+            transform: translateX(5px);
+        }
+        
+        .linkinbio-link:nth-child(1) { animation: fadeSlideUp 0.8s ease-out 0.6s both; }
+        .linkinbio-link:nth-child(2) { animation: fadeSlideUp 0.8s ease-out 0.7s both; }
+        .linkinbio-link:nth-child(3) { animation: fadeSlideUp 0.8s ease-out 0.8s both; }
+        .linkinbio-link:nth-child(4) { animation: fadeSlideUp 0.8s ease-out 0.9s both; }
+        
+        @media (max-width: 768px) {
+            .linkinbio-container {
+                padding: 30px 20px;
+                padding-top: calc(40px + env(safe-area-inset-top, 0px));
+                padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+            }
+            
+            .linkinbio-photo {
+                width: 160px;
+                height: 160px;
+                margin-bottom: 30px;
+            }
+            
+            .linkinbio-name {
+                margin-bottom: 40px;
+            }
+            
+            .linkinbio-link {
+                padding: 20px 24px;
+            }
+            
+            .linkinbio-link-title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="noise"></div>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <div class="linkinbio-container">
+        <img src="images/robin-nap-bio.jpg" alt="Robin Nap" class="linkinbio-photo">
+        
+        <h1 class="linkinbio-name">Robin Nap</h1>
+        
+        <div class="linkinbio-links">
+            <a href="https://soundcloud.com/robinnapmusic" target="_blank" class="linkinbio-link">
+                <div class="linkinbio-link-content">
+                    <span class="linkinbio-link-title">Soundcloud</span>
+                </div>
+                <span class="linkinbio-link-arrow">→</span>
+            </a>
+            
+            <a href="https://podcasts.apple.com/nl/podcast/the-edit-by-robin-nap/id1867786315?l=en-GB" target="_blank" class="linkinbio-link">
+                <div class="linkinbio-link-content">
+                    <span class="linkinbio-link-title">THE EDIT. - Weekly Mix</span>
+                </div>
+                <span class="linkinbio-link-arrow">→</span>
+            </a>
+            
+            <a href="https://www.youtube.com/@robinnapmusic" target="_blank" class="linkinbio-link">
+                <div class="linkinbio-link-content">
+                    <span class="linkinbio-link-title">YouTube</span>
+                </div>
+                <span class="linkinbio-link-arrow">→</span>
+            </a>
+            
+            <a href="mailto:robin.nap@icloud.com" class="linkinbio-link">
+                <div class="linkinbio-link-content">
+                    <span class="linkinbio-link-title">Contact</span>
+                </div>
+                <span class="linkinbio-link-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Only run custom cursor on devices with fine pointer (mouse)
+        const hasFineMouse = window.matchMedia('(pointer: fine)').matches;
+        
+        if (hasFineMouse) {
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
+            
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            let followerX = 0, followerY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animate() {
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+                followerX += (mouseX - followerX) * 0.08;
+                followerY += (mouseY - followerY) * 0.08;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                follower.style.left = followerX + 'px';
+                follower.style.top = followerY + 'px';
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+            
+            // Hover effects for links
+            const links = document.querySelectorAll('.linkinbio-link');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursor.classList.add('cursor-hover');
+                    follower.classList.add('follower-hover');
+                });
+                link.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('cursor-hover');
+                    follower.classList.remove('follower-hover');
+                });
+            });
+        }
+        
+        // Parallax orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            orbs[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            orbs[1].style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+            orbs[2].style.transform = `translate(${x * 15}px, ${y * -15}px)`;
+        });
+    </script>
+</body>
+</html>
